@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Namangan shahar 4-son texnikum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0a1628;
+  --navy-light: #152642;
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+  --gold: #f59e0b;
+  --white: #ffffff;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+/* ============ NAVIGATION ============ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+
+nav.scrolled {
+  background: rgba(10, 22, 40, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo .logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--white);
+  background: var(--glass);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 32px 80px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(59, 130, 246, 0.2) 0%, transparent 60%),
+    var(--navy);
+  z-index: 0;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.6;
+  animation: float 8s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 300px; height: 300px;
+  background: var(--blue);
+  top: 10%; left: 5%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 250px; height: 250px;
+  background: var(--gold);
+  bottom: 10%; right: 10%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+.hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--blue-light);
+  backdrop-filter: blur(10px);
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-badge .dot {
+  width: 8px; height: 8px;
+  background: var(--blue-light);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.hero h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 800;
+  margin-bottom: 24px;
+  letter-spacing: -1.5px;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.hero h1 .gradient-text {
+  background: linear-gradient(135deg, var(--blue-light) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: var(--text-muted);
+  max-width: 640px;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  animation: fadeInUp 0.8s ease 0.5s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  color: var(--white);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.5);
+}
+
+.btn-secondary {
+  background: var(--glass);
+  color: var(--white);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 600px;
+  animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.hero-stat {
+  padding: 20px 0;
+  border-left: 2px solid var(--glass-border);
+  padding-left: 20px;
+}
+
+.hero-stat-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator .line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--text-muted), transparent);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* ============ SECTIONS ============ */
+section {
+  padding: 120px 32px;
+  position: relative;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 100px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.section-title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.section-desc {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ============ ABOUT ============ */
+.about {
+  position: relative;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.about-card {
+  padding: 36px 32px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59, 130, 246, 0.3);
+  background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0.02) 100%);
+}
+
+.about-card:hover::before { transform: translateX(0); }
+
+.about-card-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(96, 165, 250, 0.1));
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.about-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.about-card p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ============ DIRECTOR SPOTLIGHT ============ */
+.director {
+  background: linear-gradient(180deg, var(--navy) 0%, #0d1a33 100%);
+}
+
+.director-card {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 48px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.director-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.director-photo {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 3/4;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid var(--glass-border);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.director-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+.director-info {
+  position: relative;
+  z-index: 1;
+}
+
+.director-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, var(--gold), #fbbf24);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.director-info h3 {
+  font-size: 36px;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.director-role {
+  font-size: 18px;
+  color: var(--blue-light);
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.director-quote {
+  color: var(--text-muted);
+  font-size: 16px;
+  font-style: italic;
+  padding-left: 20px;
+  border-left: 3px solid var(--blue);
+  line-height: 1.8;
+}
+
+/* ============ STAFF GRID ============ */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.staff-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.staff-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.staff-photo {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  position: relative;
+  background: var(--navy-light);
+}
+
+.staff-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.staff-card:hover .staff-photo img {
+  transform: scale(1.08);
+}
+
+.staff-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,22,40,0.6) 0%, transparent 50%);
+}
+
+.staff-info {
+  padding: 24px;
+}
+
+.staff-info h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.staff-role {
+  color: var(--blue-light);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.staff-role::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--blue-light);
+  border-radius: 50%;
+}
+
+/* ============ PROGRAMS ============ */
+.programs {
+  background: linear-gradient(180deg, #0d1a33 0%, var(--navy) 100%);
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.program-card {
+  padding: 40px 32px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.program-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(255,255,255,0.02));
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.program-card:hover::after { transform: scaleX(1); }
+
+.program-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--blue-light), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 20px;
+  opacity: 0.4;
+}
+
+.program-icon {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.program-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+
+.program-card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.program-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--blue-light);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ============ STATS ============ */
+.stats {
+  background: linear-gradient(180deg, var(--navy) 0%, #0d1a33 100%);
+}
+
+.stats-container {
+  padding: 60px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(245, 158, 11, 0.05));
+  border: 1px solid var(--glass-border);
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-container::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%);
+}
+
+.stats-container::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--white), var(--blue-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
+/* ============ CONTACT ============ */
+.contact {
+  background: var(--navy);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.contact-info h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.contact-info > p {
+  color: var(--text-muted);
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.contact-icon {
+  width: 48px; height: 48px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.contact-item-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.contact-item-value {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.contact-form-card {
+  padding: 48px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+.contact-form-card h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.contact-form-card > p {
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
+}
+
+.telegram-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #0088cc, #00a0e3);
+  color: var(--white);
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.telegram-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 136, 204, 0.4);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  padding: 40px 32px;
+  background: #060d1a;
+  border-top: 1px solid var(--glass-border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--blue-light);
+  text-decoration: none;
+}
+
+/* ============ SCROLL ANIMATIONS ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 968px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    background: rgba(10, 22, 40, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    gap: 4px;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .nav-links.active { display: flex; }
+
+  .nav-links a {
+    padding: 14px 18px;
+    text-align: center;
+  }
+
+  .nav-toggle { display: flex; }
+
+  .director-card {
+    grid-template-columns: 1fr;
+    padding: 32px;
+    gap: 32px;
+  }
+
+  .director-photo {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .about-grid,
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .stats-container {
+    padding: 40px 24px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-form-card {
+    padding: 32px 24px;
+  }
+
+  section { padding: 80px 24px; }
+  .hero { padding: 100px 24px 60px; }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .hero-stat { padding-left: 12px; }
+  .hero-stat-num { font-size: 24px; }
+  .hero-stat-label { font-size: 10px; }
+}
+
+@media (max-width: 640px) {
+  .section-header { margin-bottom: 48px; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .btn { justify-content: center; width: 100%; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .staff-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .staff-info { padding: 16px; }
+  .staff-info h3 { font-size: 15px; }
+  .staff-role { font-size: 12px; }
+}
+
+/* Placeholder avatar styling */
+.avatar-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--blue), var(--navy-light));
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="mainNav">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <div class="logo-icon">N4</div>
+      <span>Texnikum</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Bosh sahifa</a></li>
+      <li><a href="#about">Biz haqimizda</a></li>
+      <li><a href="#staff">Jamoa</a></li>
+      <li><a href="#programs">Yo'nalishlar</a></li>
+      <li><a href="#contact">Aloqa</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+  </div>
+  <div class="hero-container">
+    <div>
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>2026 yil qabul ochiq</span>
+      </div>
+      <h1>
+        Namangan shahar <br>
+        <span class="gradient-text">4-son texnikum</span>
+      </h1>
+      <p class="hero-subtitle">
+        Zamonaviy ta'lim, tajribali o'qituvchilar va kelajagingiz uchun eng yaxshi imkoniyatlar. Bilim olishni biz bilan boshlang.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          Qabulga ariza →
+        </a>
+        <a href="#programs" class="btn btn-secondary">
+          Yo'nalishlarni ko'rish
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">6</div>
+          <div class="hero-stat-label">Yo'nalish</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">8+</div>
+          <div class="hero-stat-label">O'qituvchi</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-label">Talaba</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Biz haqimizda</span>
+      <h2 class="section-title">Nega aynan bizni tanlash kerak?</h2>
+      <p class="section-desc">Bizning texnikum zamonaviy metodika va professional jamoa bilan sizning muvaffaqiyatingizni ta'minlaydi</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="about-card-icon">🎓</div>
+        <h3>Sifatli ta'lim</h3>
+        <p>Zamonaviy dasturlar va amaliy yondashuv orqali talabalarni kelajakdagi kasbiy faoliyatiga to'liq tayyorlaymiz.</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-card-icon">👨‍🏫</div>
+        <h3>Tajribali mutaxassislar</h3>
+        <p>Professional o'qituvchilar va soha mutaxassislari har bir talabaga individual yondashuv bilan bilim berishadi.</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-card-icon">🚀</div>
+        <h3>Kelajak uchun</h3>
+        <p>IT, biznes, dizayn va boshqa talab yuqori bo'lgan sohalarda muvaffaqiyatli kareraga qadam qo'ying.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Director Spotlight -->
+<section class="director">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Rahbariyat</span>
+      <h2 class="section-title">Texnikum Direktori</h2>
+    </div>
+    <div class="director-card reveal">
+      <div class="director-photo">
+        <img src="images/director.jpg" alt="Tuychiyev Bahodir" onerror="this.parentElement.innerHTML='<div class=\'avatar-placeholder\'>TB</div>'">
+      </div>
+      <div class="director-info">
+        <span class="director-badge">Direktor</span>
+        <h3>Tuychiyev Bahodir Nematullayevich</h3>
+        <p class="director-role">Namangan shahar 4-son texnikum Direktori</p>
+        <p class="director-quote">
+          "Har bir talaba bizning kelajagimizdir. Biz ularga nafaqat bilim, balki o'z ustida ishlash, mustaqil fikrlash va jamiyatga foyda keltirish ko'nikmalarini berishga intilamiz."
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Staff Section -->
+<section id="staff">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Jamoa</span>
+      <h2 class="section-title">Bizning O'qituvchilar</h2>
+      <p class="section-desc">"Har bir ustoz — sizning yo'l ko'rsatkichingiz!" Tajribali va professional jamoamiz bilan tanishing.</p>
+    </div>
+    <div class="staff-grid">
+
+      <div class="staff-card reveal">
+        <div class="staff-photo">
+          <img src="images/bilolxon.jpg" alt="Muhammadxonov Bilolxon" onerror="this.parentElement.innerHTML='<div class=\'avatar-placeholder\'>MB</div>'">
+        </div>
+        <div class="staff-info">
+          <h3>Muhammadxonov Bilolxon</h3>
+          <p class="staff-role">Dasturlash o'qituvchisi</p>
+        </div>
+      </div>
+
+      <div class="staff-card reveal">
+        <div class="staff-photo">
+          <img src="images/baxromjon.jpg" alt="Tadjibayev Baxromjon" onerror="this.parentElement.innerHTML='<div class=\'avatar-placeholder\'>TB</div>'">
+        </div>
+        <div class="staff-info">
+          <h3>Tadjibayev Baxromjon</h3>
+          <p class="staff-role">Tarix fani o'qituvchisi</p>
+        </div>
+      </div>
+
+      <div class="staff-card reveal">
+        <div class="staff-photo">
+          <img src="images/jahona.jpg" alt="Khamidjanova Jahona" onerror="this.parentElement.innerHTML='<div class=\'avatar-placeholder\'>KJ</div>'">
+        </div>
+        <div class="staff-info">
+          <h3>Khamidjanova Jahona</h3>
+          <p class="staff-role">Ingliz tili o'qituvchisi</p>
+        </div>
+      </div>
+
+      <div class="staff-card reveal">
+        <div class="staff-photo">
+          <img src="images/ahrorbek.jpg" alt="Hayitboyev Ahrorbek" onerror="this.parentElement.innerHTML='<div class=\'avatar-placeholder\'>HA</div>'">
+        </div>
+        <div class="staff-info">
+          <h3>Hayitboyev Ahrorbek</h3>
+          <p class="staff-role">Jismoniy tarbiya</p>
+        </div>
+      </div>
+
+      <div class="staff-card reveal">
+        <div class="staff-photo">
+          <img src="images/xursanali.jpg" alt="Davlatov Xursanali" onerror="this.parentElement.innerHTML='<div class=\'avatar-placeholder\'>DX</div>'">
+        </div>
+        <div class="staff-info">
+          <h3>Davlatov Xursanali</h3>
+          <p class="staff-role">Biznes asoslari</p>
+        </div>
+      </div>
+
+      <div class="staff-card reveal">
+        <div class="staff-photo">
+          <img src="images/nodirbek.jpg" alt="G'aybullayev Nodirbek" onerror="this.parentElement.innerHTML='<div class=\'avatar-placeholder\'>GN</div>'">
+        </div>
+        <div class="staff-info">
+          <h3>G'aybullayev Nodirbek</h3>
+          <p class="staff-role">Biznes asoslari</p>
+        </div>
+      </div>
+
+      <div class="staff-card reveal">
+        <div class="staff-photo">
+          <img src="images/umidaxon.jpg" alt="Akbarova Umidaxon" onerror="this.parentElement.innerHTML='<div class=\'avatar-placeholder\'>AU</div>'">
+        </div>
+        <div class="staff-info">
+          <h3>Akbarova Umidaxon</h3>
+          <p class="staff-role">Xotin-qizlar raisi</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Programs Section -->
+<section class="programs" id="programs">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Ta'lim yo'nalishlari</span>
+      <h2 class="section-title">O'z yo'lingizni tanlang</h2>
+      <p class="section-desc">6 ta zamonaviy yo'nalish orqali kelajak kasbingizni egallang</p>
+    </div>
+    <div class="programs-grid">
+
+      <div class="program-card reveal">
+        <div class="program-number">01</div>
+        <div class="program-icon">💻</div>
+        <h3>Dasturiy injiniring</h3>
+        <p>Dasturlash tillari, web va mobil ilovalar yaratish, zamonaviy texnologiyalar.</p>
+        <span class="program-tag">IT sohasi</span>
+      </div>
+
+      <div class="program-card reveal">
+        <div class="program-number">02</div>
+        <div class="program-icon">🎨</div>
+        <h3>Kompyuter grafikasi va dizayn</h3>
+        <p>Grafik dizayn, 3D modellashtirish, vizual kontent yaratish bo'yicha kasbiy ta'lim.</p>
+        <span class="program-tag">Dizayn</span>
+      </div>
+
+      <div class="program-card reveal">
+        <div class="program-number">03</div>
+        <div class="program-icon">👶</div>
+        <h3>Maktabgacha ta'lim uslubchisi</h3>
+        <p>Bolalarni rivojlantirish, pedagogika va psixologiya asoslari bo'yicha mutaxassis tayyorlash.</p>
+        <span class="program-tag">Pedagogika</span>
+      </div>
+
+      <div class="program-card reveal">
+        <div class="program-number">04</div>
+        <div class="program-icon">⚽</div>
+        <h3>Sport faoliyati</h3>
+        <p>Jismoniy tarbiya, sport turlari va sog'lom turmush tarzi bo'yicha professional ta'lim.</p>
+        <span class="program-tag">Sport</span>
+      </div>
+
+      <div class="program-card reveal">
+        <div class="program-number">05</div>
+        <div class="program-icon">💼</div>
+        <h3>Moliya yo'nalishi</h3>
+        <p>Moliya, buxgalteriya, iqtisodiyot asoslari va zamonaviy biznes boshqaruvi.</p>
+        <span class="program-tag">Iqtisodiyot</span>
+      </div>
+
+      <div class="program-card reveal">
+        <div class="program-number">06</div>
+        <div class="program-icon">🧵</div>
+        <h3>Tikuvchilik</h3>
+        <p>Zamonaviy moda, kiyim dizayni va tikuvchilik texnologiyalari bo'yicha hunarmand tayyorlash.</p>
+        <span class="program-tag">Hunar</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-container reveal">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" data-target="500">0</div>
+          <div class="stat-label">Talabalar</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="6">0</div>
+          <div class="stat-label">Yo'nalish</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="95">0</div>
+          <div class="stat-label">% Ish bilan ta'min.</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="12">0</div>
+          <div class="stat-label">Yillik tajriba</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="section-label">Qabul</span>
+        <h2>Kelajagingizni biz bilan quring</h2>
+        <p>Namangan shahar 4-son texnikumga qabul jarayoni ochiq. Biz bilan bog'laning va sizga qiziq bo'lgan savollarga javob oling.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Manzil</div>
+              <div class="contact-item-value">Namangan shahri, O'zbekiston</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📢</div>
+            <div>
+              <div class="contact-item-label">Rasmiy kanal</div>
+              <div class="contact-item-value">@namsh4texnikum</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div class="contact-item-label">Qabul kanali</div>
+              <div class="contact-item-value">@qabultexnikum</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <div class="contact-item-label">Ish vaqti</div>
+              <div class="contact-item-value">Du-Shan 9:00 - 18:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-card reveal">
+        <h3>Ariza qoldiring</h3>
+        <p>Biz tez orada siz bilan bog'lanamiz</p>
+        <a href="https://t.me/namsh4texnikum" target="_blank" class="telegram-btn">
+          ✈️ Rasmiy kanal — @namsh4texnikum
+        </a>
+        <a href="https://t.me/qabultexnikum" target="_blank" class="telegram-btn">
+          ✈️ Qabul kanali — @qabultexnikum
+        </a>
+        <div class="form-group">
+          <label>Ism familiya</label>
+          <input type="text" placeholder="Ismingizni kiriting" required>
+        </div>
+        <div class="form-group">
+          <label>Telefon raqam</label>
+          <input type="tel" placeholder="+998 __ ___ __ __" required>
+        </div>
+        <div class="form-group">
+          <label>Qiziqtirgan yo'nalish</label>
+          <input type="text" placeholder="Masalan: Dasturiy injiniring">
+        </div>
+        <button type="submit" class="btn-submit" onclick="handleSubmit(event)">Arizani yuborish</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Namangan shahar 4-son texnikum. Barcha huquqlar himoyalangan.</p>
+</footer>
+
+<script>
+// Navigation scroll effect
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Mobile menu toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+// Active link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinksAll = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.pageYOffset;
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 150;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      navLinksAll.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + sectionId) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+});
+
+// Reveal on scroll
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Counter animation
+const counters = document.querySelectorAll('.stat-number');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counter = entry.target;
+      const target = parseInt(counter.getAttribute('data-target'));
+      let current = 0;
+      const increment = target / 60;
+      const updateCount = () => {
+        current += increment;
+        if (current < target) {
+          counter.textContent = Math.ceil(current);
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.textContent = target + (target === 95 ? '%' : '+');
+        }
+      };
+      updateCount();
+      counterObserver.unobserve(counter);
+    }
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(counter => counterObserver.observe(counter));
+
+// Form submit
+function handleSubmit(e) {
+  e.preventDefault();
+  alert('Arizangiz qabul qilindi! Tez orada siz bilan bog\'lanamiz.');
+}
+</script>
+
+</body>
+</html>
